@@ -1,0 +1,37 @@
+<html>
+<head>
+<base target="_top">
+
+</head>
+
+<body>
+<br><br>
+<button id="scanButton">Scan</button>
+<br><br><br>
+<button id="writeButton">Write</button>
+<br><br><br>
+<button id="makeReadOnlyButton">Make Read-Only</button>
+<br><br><br>
+<div id="message"></div>
+
+<script>
+
+if (!("NDEFReader" in window)){document.getElementById("message").innerHTML = "Web NFC is not available. Use Chrome on Android.";}
+  //document.getElementById("message").innerHTML = "User clicked scan button";
+  const ndef = new NDEFReader();
+  ndef.scan().then(() => {
+      //document.getElementById("message").innerHTML ="Scan started successfully.";
+      ndef.onreadingerror = (event) => {
+        document.getElementById("message").innerHTML ="Error! Cannot read data from the NFC tag. Try a different one?";
+      };
+      ndef.onreading = (event) => {
+        document.getElementById("message").innerHTML ="NDEF message read.";
+      };
+  })
+  .catch((error) => {document.getElementById("message").innerHTML =`Error! Scan failed to start: ${error}.`;
+  });
+
+</script>
+
+</body>
+</html>
