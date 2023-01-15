@@ -17,7 +17,7 @@
 <script>
 
 if (!("NDEFReader" in window)){document.getElementById("message").innerHTML = "Web NFC is not available. Use Chrome on Android.";}
-  //document.getElementById("message").innerHTML = "User clicked scan button";
+  document.getElementById("message").innerHTML = "User clicked scan button";
   const ndef = new NDEFReader();
   ndef.scan().then(() => {
       //document.getElementById("message").innerHTML ="Scan started successfully.";
