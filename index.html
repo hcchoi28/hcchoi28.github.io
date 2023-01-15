@@ -17,23 +17,23 @@
 <script>
 
 scanButton.addEventListener("click", async () => {
-  console.log("User clicked scan button");
+  document.getElementById("message").innerHTML ="User clicked scan button";
 
   try {
     const ndef = new NDEFReader();
     await ndef.scan();
-    console.log("> Scan started");
+    document.getElementById("message").innerHTML ="> Scan started";
 
     ndef.addEventListener("readingerror", () => {
-      console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+     document.getElementById("message").innerHTML ="Argh! Cannot read data from the NFC tag. Try another one?";
     });
 
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
-      console.log(`> Serial Number: ${serialNumber}`);
-      console.log(`> Records: (${message.records.length})`);
+      document.getElementById("message").innerHTML = `> Serial Number: ${serialNumber}`;
+      document.getElementById("message").innerHTML =`> Records: (${message.records.length})`;
     });
   } catch (error) {
-    console.log("Argh! " + error);
+   document.getElementById("message").innerHTML ="Argh! " + error;
   }
 });
   
