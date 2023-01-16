@@ -13,7 +13,7 @@
 <button id="makeReadOnlyButton">Make Read-Only</button>
 <br><br><br>
 <div id="message"></div>
-
+<div id="message2"></div>
 <script>
 
 scanButton.addEventListener("click", async () => {
@@ -30,7 +30,7 @@ scanButton.addEventListener("click", async () => {
 
     ndef.addEventListener("reading", ({ message, serialNumber }) => {
       document.getElementById("message").innerHTML = `> Serial Number: ${serialNumber}`;
-      document.getElementById("message").innerHTML =`> Records: (${message.records.length})`;
+      document.getElementById("message2").innerHTML =`> Records: (${message.records.length})`;
     });
   } catch (error) {
    document.getElementById("message").innerHTML ="Argh! " + error;
