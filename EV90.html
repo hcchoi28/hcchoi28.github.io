@@ -16,7 +16,7 @@
     <script>
         const queryString = window.location.search;
         document.getElementById('linkto').src = "https://script.google.com/macros/s/AKfycbwelrcAm_LyHDexxdvbA15BEhUmQKIaR83TKok8xz94DdwrRy_ZMzDbryauorKcSqFKbw/exec"+queryString;
-        /*if("serviceWorker" in navigator) {
+        if("serviceWorker" in navigator) {
             console.log("Will service worker register?");
             navigator.serviceWorker.register("sw.js").then(registration => {
                 console.log("SW Registered!");
@@ -25,12 +25,7 @@
                 console.log("SW REgistration Failed!");
                 console.log(error);
             });
-        }*/
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('sw.js')
-                .then(() => { console.log('Service Worker Registered'); });
-            }
+        }
     </script>
 </body>
 </html>
