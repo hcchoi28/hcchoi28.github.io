@@ -1,17 +1,18 @@
 
- self.addEventListener("install", e=> {
+ self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open("static").then(cache => {
-            return cache.addAll(["./", "./master.css", "./logo192.png"]);
-        })
+      caches.open('static').then((cache) => cache.addAll([
+        //'sw.js',
+        'EV90.html',
+        
+      ])),
     );
- });
-
- self.addEventListener("fetch", e=> {
+  });
+  
+  self.addEventListener('fetch', (e) => {
+    console.log(e.request.url);
     e.respondWith(
-        caches.match(e.request).then(response => {
-            return response || fetch(e.request);
-        })
-    )
- });
+      caches.match(e.request).then((response) => response || fetch(e.request)),
+    );
+  });
 
