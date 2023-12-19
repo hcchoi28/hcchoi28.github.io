@@ -1,9 +1,7 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('static').then((cache) => cache.addAll([
-      'sw.js',
-      'EV90.html',
-      
+      'sw.js'      
     ])),
   );
 });
